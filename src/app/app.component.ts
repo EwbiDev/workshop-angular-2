@@ -1,13 +1,34 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+
+import { DataComponent } from './components/data/data.component';
+import { DataService } from './services/data.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    DataComponent,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'workshop-angular-2';
+  title='workshop-angular-2'
+  fruit = ['apple', 'pear', 'strawberry'];
+  constructor(public ds: DataService) {}
 }
